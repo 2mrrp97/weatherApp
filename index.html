@@ -19,23 +19,29 @@
 </head>
 
 <body>
-    <h1 class="text-center my-5"><i>Welcome to my Weather App</i></h1>
-
-    <div class="inputs my-5">
-        <input id="cityname" type="text" placeholder="Type your city name here ...">
-        <button id="submitBtn" type="submit" class="btn btn-dark mx-2">Get Weather</button>
-    </div>
-
     <div id="winfo" class="info bg-dark text-light py-5">
+        <h1 class="text-center my-5"><i>Welcome to my Weather App</i></h1>
+        <div class="inputs my-5">
+            <input id="cityname" type="text" placeholder="Type your city name here ...">
+            <button id="submitBtn" type="submit" class="btn btn-light mx-2">Get Weather</button>
+        </div>
+        <div id="maindiv">
 
-        <h1 class="temp text-center my-2 mb-5"></h1>
-        <h3 class="temp text-center my-2"></h3>
-        <h3 class="temp text-center my-2"></h3>
-        <h3 class="temp text-center my-2"></h3>
-        <h3 class="temp text-center my-2"></h3>
-        <h3 class="temp text-center my-2"></h3>
-        <h3 class="temp text-center my-2"></h3>
-        <h1 class="temp text-center my-2">Input a city name to check its weather</h1>
+            <h1 class="temp text-center my-2 mb-5"></h1>
+            <h3 class="temp text-center my-2"></h3>
+            <h3 class="temp text-center my-2"></h3>
+            <h3 class="temp text-center my-2"></h3>
+            <h3 class="temp text-center my-2"></h3>
+            <h3 class="temp text-center my-2"></h3>
+            <h3 class="temp text-center my-2"></h3>
+            <h1 class="temp text-center my-2">Input a city name to check its weather</h1>
+
+
+            <h2 id="fheading" style="display: none; " class="text-center mt-5">-:Forecast of coming 5 days:-</h2>
+        </div>
+        <div id="forecast_div" class="my-5">
+
+        </div>
     </div>
 
 </body>
