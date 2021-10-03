@@ -9,7 +9,8 @@ function populate_element(node, data, iscard, index) {
         fheading.style.display = "block";
     }
 
-    childs[0].innerText = iscard ? "Date : " + data['list'][index].dt_txt.slice(0, 10) : "City : " + cityname.value;
+    var str = data['list'][index].dt_txt;
+    childs[0].innerText = iscard ? "" + str.slice(10, str.length - 3) : "City : " + cityname.value;
     childs[1].innerText = "Temp : " + data['list'][index]['main'].temp + " celcius";
     childs[2].innerText = "Temp max : " + data['list'][index]['main'].temp_max + " celcius";
     childs[3].innerText = "Temp min : " + data['list'][index]['main'].temp_min + " celcius";
@@ -44,7 +45,7 @@ submitBtn.addEventListener('click', () => {
 
             for (let i = 0; i < 5; i++) {
                 forecast.innerHTML += `<div class = "card py-5 px-3 col-lg-2 col-md-4 col-sm-8">
-                                            <h4 class="temp text-center my-2 mb-5"></h4>
+                                            <h3 class="temp text-center my-2 mb-5"></h3>
                                             <h6 class="temp text-center my-2"></h6>
                                             <h6 class="temp text-center my-2"></h6>
                                             <h6 class="temp text-center my-2"></h6>
