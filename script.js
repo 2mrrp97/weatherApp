@@ -1,9 +1,30 @@
+function populate_element(node, data, iscard, index) {
+    var childs = node.children;
+    if (7 < childs.length)
+        childs[7].innerText = ""; // reset the default text inside the black box 
+
+
+    if (iscard) {
+        var fheading = document.getElementById('fheading');
+        fheading.style.display = "block";
+    }
+
+    childs[0].innerText = iscard ? "Date : " + data['list'][index].dt_txt.slice(0, 10) : "City : " + cityname.value;
+    childs[1].innerText = "Temp : " + data['list'][index]['main'].temp + " celcius";
+    childs[2].innerText = "Temp max : " + data['list'][index]['main'].temp_max + " celcius";
+    childs[3].innerText = "Temp min : " + data['list'][index]['main'].temp_min + " celcius";
+    childs[4].innerText = "Feels like : " + data['list'][index]['main'].feels_like + " celcius";
+    childs[5].innerText = "Weather : " + data['list'][index]['weather'][0]['main'];
+    childs[6].innerText = "Weather desc : " + data['list'][index]['weather'][0]['description'];
+};
+
+
 var submitBtn = document.getElementById('submitBtn');
 var cityname = document.getElementById('cityname');
 
 submitBtn.addEventListener('click', () => {
 
-    fetch("https://community-open-weather-map.p.rapidapi.com/forecast?q=kolkata&units=metric&mode=json&lang=en&cnt=6", {
+    fetch("https://community-open-weather-map.p.rapidapi.com/forecast?q=" + cityname.value + "&units=metric&mode=json&lang=en&cnt=6", {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
@@ -14,13 +35,12 @@ submitBtn.addEventListener('click', () => {
         .then(data => {
             console.log(data);
             var info = document.getElementById('maindiv');
-            console.log(info);
 
             let index = 0;
             populate_element(info, data, false, index++);
 
             var forecast = document.getElementById('forecast_div');
-            forecast.innerHTML = '';
+            forecast.innerHTML = "";
 
             for (let i = 0; i < 5; i++) {
                 forecast.innerHTML += `<div class = "card py-5 px-3 col-lg-2 col-md-4 col-sm-8">
@@ -35,7 +55,7 @@ submitBtn.addEventListener('click', () => {
             }
 
             var cards = forecast.children;
-            console.log(cards);
+
             for (let i = 0; i < cards.length; i++, index++) {
                 populate_element(cards[i], data, true, index);
             }
@@ -47,23 +67,3 @@ submitBtn.addEventListener('click', () => {
 });
 
 
-function populate_element(node, data, iscard, index) {
-    var childs = node.children;
-    if (7 < childs.length)
-        childs[7].innerText = ""; // reset the default text inside the black box 
-
-
-    if (iscard) {
-        var fheading = document.getElementById('fheading');
-        console.log(fheading);
-        fheading.style.display = "block";
-    }
-
-    childs[0].innerText = iscard ? "Date : " + data['list'][index].dt_txt.slice(0, 10) : "City : " + cityname.value;
-    childs[1].innerText = "Temp : " + data['list'][index]['main'].temp + " celcius";
-    childs[2].innerText = "Temp max : " + data['list'][index]['main'].temp_max + " celcius";
-    childs[3].innerText = "Temp min : " + data['list'][index]['main'].temp_min + " celcius";
-    childs[4].innerText = "Feels like : " + data['list'][index]['main'].feels_like + " celcius";
-    childs[5].innerText = "Weather : " + data['list'][index]['weather'][0]['main'];
-    childs[6].innerText = "Weather desc : " + data['list'][index]['weather'][0]['description'];
-};
