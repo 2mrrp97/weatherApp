@@ -18,15 +18,12 @@ for (let i = 0, h = 3; i < 5; i++, h += 3) {
 
 function populate_element(node, data, iscard, offset, index) {
     var childs = node.children;
-    if (7 + offset < childs.length)
-        childs[7 + offset].innerText = ""; // reset the default text inside the black box 
 
     // set main div and forecast div values if data is to be put other wise reset values for refresh prg bar effect
     if (data != null) {
         var str = data['list'][index].dt_txt;
 
-        childs[0 + offset].innerText = iscard ? str.slice(10, str.length - 3) + " hr" 
-                                       : "City : " + cityname.value + " \n Last Updated : " + str.slice(10, str.length - 3) + " hr";
+        childs[0 + offset].innerText = iscard ? str.slice(10, str.length - 3) + " hr" : "City : " + cityname.value + " \n Last Updated : " + str.slice(10, str.length - 3) + " hr";
         childs[1 + offset].innerText = "Temp : " + data['list'][index]['main'].temp + " celcius";
         childs[2 + offset].innerText = "Temp max : " + data['list'][index]['main'].temp_max + " celcius";
         childs[3 + offset].innerText = "Temp min : " + data['list'][index]['main'].temp_min + " celcius";
