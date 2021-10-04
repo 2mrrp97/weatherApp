@@ -10,7 +10,7 @@ function populate_element(node, data, iscard, index) {
     }
 
     var str = data['list'][index].dt_txt;
-    childs[0].innerText = iscard ? "" + str.slice(10, str.length - 3) : "City : " + cityname.value;
+    childs[0].innerText = iscard ? "" + str.slice(10, str.length - 3) : "City : " + cityname.value + " \n Updated : " + str.slice(10, str.length - 3);
     childs[1].innerText = "Temp : " + data['list'][index]['main'].temp + " celcius";
     childs[2].innerText = "Temp max : " + data['list'][index]['main'].temp_max + " celcius";
     childs[3].innerText = "Temp min : " + data['list'][index]['main'].temp_min + " celcius";
