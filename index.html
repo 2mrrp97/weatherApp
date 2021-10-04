@@ -16,6 +16,9 @@
         crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="./style.css">
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -27,6 +30,14 @@
         </div>
         <div id="maindiv">
 
+
+            <h1 id="prompt" class="temp text-center my-2">Input a city name to check its weather</h1>
+
+            <div id="pgbarContainer" class="py-5 movetocenter">
+                <h3>We are fetching required information...</h3>
+                <progress id="pgbar" max="100" value="0" class="pgbar"></progress>
+            </div>
+
             <h1 class="temp text-center my-2 mb-5" style="line-height: 60px;"></h1>
             <h3 class="temp text-center my-2"></h3>
             <h3 class="temp text-center my-2"></h3>
@@ -34,15 +45,14 @@
             <h3 class="temp text-center my-2"></h3>
             <h3 class="temp text-center my-2"></h3>
             <h3 class="temp text-center my-2"></h3>
-            <h1 class="temp text-center my-2">Input a city name to check its weather</h1>
 
-
-            <h2 id="fheading" style="display: none; " class="text-center mt-5">- : Forecast of next 5 intervals : -
+            <h2 id="fheading" style="display: none; " class="text-center">- : Forecast of next 5 intervals : -
             </h2>
-        </div>
-        <div id="forecast_div" class="my-5">
+            <div id="forecast_div" class="my-5">
 
+            </div>
         </div>
+
     </div>
 
 </body>
