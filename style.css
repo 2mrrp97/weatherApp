@@ -41,3 +41,20 @@ body {
   color: white;
   box-shadow: 1px 1px 5px gray;
 }
+.movetocenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pgbar {
+  height: 3rem;
+  transition: all 1s ease;
+  width: 60%;
+  color: blue;
+}
+
+#pgbarContainer {
+  display: none;
+}
